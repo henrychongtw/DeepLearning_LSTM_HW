@@ -14,7 +14,6 @@ N_INPUT = 2
 N_OUTPUT = 1
 
 
-# from https://github.com/Lasagne/Lasagne/blob/master/examples/recurrent.py
 def gen_data(min_length=MIN_LENGTH, max_length=MAX_LENGTH):
     # Generate x_seq
     length = np.random.randint(min_length, max_length)
@@ -84,7 +83,7 @@ rnn_train = theano.function(
     updates=MyUpdate(parameters, gradients)
 )
 
-for i in range(500000):
+for i in range(1000000):
     x_seq, y_hat = gen_data()
     print("iteration:", i, "cost:", rnn_train(x_seq, y_hat))
 
